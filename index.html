@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社Edge Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&family=Noto+Sans+JP:wght@700;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div id="loading-screen">
+    <div class="loading-texts">
+      <div class="loading-moya">モヤモヤを</div>
+      <div class="loading-waku">ワクワクに。</div>
+    </div>
+  </div>
+  <header class="header">
+    <a href="#top" class="logo-link">
+      <img src="Edge Hub 企業ロゴ.png" alt="Edge Hub ロゴ" class="logo">
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+    </button>
+    <nav class="nav" id="nav">
+      <a href="#top" class="nav-link">TOP</a>
+      <a href="#mission" class="nav-link">MISSION</a>
+      <a href="#business" class="nav-link">SERVICE</a>
+      <a href="about.html" class="nav-link">ABOUT</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-sticky">
+        <video class="bg-video" src="homepage_paint_video.MP4" autoplay loop muted playsinline></video>
+        <div class="hero-overlay"></div>
+        <img class="hero-center-logo" src="Edge Hub 企業ロゴ.png" alt="Edge Hub ロゴ">
+        <div class="hero-texts">
+          <h1 class="hero-title">その経験、本当に自分らしさ出せてますか？</h1>
+          <p class="hero-desc">
+            同じスタートライン、同じ志望動機、誰かが敷いたレールの上を走るだけの人生で本当に満足できるだろうか？<br/>
+            心から「やりたい」と叫ぶこと。<br/>
+            寝食を忘れるほど好きなこと。<br/>
+            そんな“本当の自分”と向き合える場所。<br/>
+            私たちは、君が積み上げてきた経験を“他の誰ともかぶらない物語”に変えるお手伝いをします。<br/>
+            さあ、君らしい色で未来を塗り替えよう。<br/>
+            ここから始まる、新しい就活のカタチ。<br/>
+            Edge Hubで、あなただけの未来を共に描こう。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR MISSION Section -->
+    <section class="mission-section" id="mission">
+      <!-- Introduction Area -->
+      <div class="mission-intro">
+        <div class="mission-bg">
+          <img src="HAIKEI.png" alt="背景画像" class="mission-bg-image">
+          <div class="mission-overlay"></div>
+        </div>
+        <div class="mission-container">
+          <h2 class="mission-catch">Step Forward, No Limit</h2>
+          <div class="mission-line"></div>
+        </div>
+      </div>
+
+      <!-- Main Message Area -->
+      <div class="mission-main">
+        <div class="mission-bg-split" aria-hidden="true">
+          <div class="mission-bg-left"></div>
+          <div class="mission-bg-right"></div>
+        </div>
+        <div class="mission-container">
+          <h3 class="mission-title">OUR MISSION</h3>
+          <h4 class="mission-heading">モヤモヤをワクワクに。</h4>
+          <h5 class="mission-subheading">キャリアスタートのインフラを整え、一人ひとりの成長で日本の可能性をつくる。</h5>
+          <div class="mission-content">
+            <p>私たちの使命は、学生が抱える「将来への不安」や「キャリアのモヤモヤ」を、挑戦と成長のワクワクへと変えることです。社会に出る前のスタートラインで、安心して挑戦できる環境を整え、一人ひとりが自分らしい可能性を広げられるようサポートします。</p>
+            <p>その積み重ねがやがて日本全体の可能性をつくり、未来を動かす力になると私たちは信じています。<br>これからも輝ける若者のキャリアを発掘し、育て、活かし、社会と共に新たな未来価値を生み出す共創パートナーであり続けます。</p>
+            <p class="mission-ending">さあ、明日のその先へ。<br>未来にはどんなワクワクする毎日が待っているだろう。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Business Section -->
+    <section class="service" id="business">
+      <div class="service-header">
+        <div class="service-eyebrow">SERVICE</div>
+        <h2 class="service-title">サービス内容</h2>
+      </div>
+
+      <div class="service-vertical">
+        <!-- 01 -->
+        <article class="service-vcard" data-bg="03.jpeg">
+          <div class="service-voverlay"></div>
+          <div class="service-vinner">
+            <div class="service-vnum">01</div>
+            <h3 class="service-vname">ガクチカ創成事業</h3>
+            <p class="service-vdesc">学生が各業界のプロフェッショナルにインタビューし記事化、発信するプラットフォームを運営。集まった学生への就職支援も行っています。</p>
+            <a href="business2.html" class="service-vcta cta-one">VIEW MORE</a>
+          </div>
+        </article>
+        
+        <!-- 02（旧03の内容を引継ぎ、番号のみ変更） -->
+        <article class="service-vcard" data-bg="04.jpeg">
+          <div class="service-voverlay"></div>
+          <div class="service-vinner">
+            <div class="service-vnum">02</div>
+            <h3 class="service-vname">学生向けビジネススキル育成事業</h3>
+            <p class="service-vdesc">ハイキャリア志望学生が集うコミュニティを運営し、実践型インターンで成長を促す学びの場を提供。早期に市場価値を高めます。</p>
+            <a href="business4.html" class="service-vcta cta-three">VIEW MORE</a>
+          </div>
+        </article>
+        
+        <!-- 03（旧04の内容を引継ぎ、番号のみ変更） -->
+        <article class="service-vcard" data-bg="01.jpeg">
+          <div class="service-voverlay"></div>
+          <div class="service-vinner">
+            <div class="service-vnum">03</div>
+            <h3 class="service-vname">マッチングイベント企画運営</h3>
+            <p class="service-vdesc">企業と学生を結ぶマッチングイベントを企画運営。確かなデータ提供とアフターフォローで効率的に候補者を集め、採用成功へ導きます。</p>
+            <a href="business1.html" class="service-vcta cta-four">VIEW MORE</a>
+          </div>
+        </article>
+      </div>
+    </section>
+    
+    <section class="contact" id="contact">
+      <a href="mailto:info@edgehub.co.jp" class="contact-btn">お問い合わせ</a>
+    </section>
+  </main>
+
+  <!-- Corporate Footer Band -->
+  <section class="corp-footer">
+    <div class="corp-footer__inner">
+      <div class="corp-footer__col corp-footer__brand">
+        <img src="WHITELOGO.png" alt="Edge Hub ロゴ(白)" class="footer-logo"/>
+        <p class="corp-tagline">モヤモヤをワクワクに。</p>
+      </div>
+      <nav class="corp-footer__col corp-footer__links" aria-label="フッターナビゲーション">
+        <a href="#top" class="corp-link">TOP</a>
+        <a href="#mission" class="corp-link">MISSION</a>
+        <a href="#business" class="corp-link">SERVICE</a>
+        <a href="about.html" class="corp-link">ABOUT</a>
+      </nav>
+      <div class="corp-footer__col corp-footer__contact">
+        <div class="corp-contact-block">
+          <div class="corp-contact-title">本社</div>
+          <div class="corp-contact-text">〒530-0001 大阪府大阪市北区梅田1丁目2番2号 大阪駅前第2ビル12-12</div>
+        </div>
+        <div class="corp-contact-block">
+          <div class="corp-contact-title">事業所</div>
+          <div class="corp-contact-text">〒542-0076 大阪府大阪市中央区難波５丁目１−６０ なんばスカイオ WeWork27階</div>
+        </div>
+        <div class="corp-contact-block">
+          <div class="corp-contact-title">電話</div>
+          <div class="corp-contact-text">090-3357-2070</div>
+        </div>
+        <div class="corp-contact-block">
+          <div class="corp-contact-title">メール</div>
+          <div class="corp-contact-text">backoffice@edge-hub.net</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <small>© Edge Hub / 法人番号：1120001276956</small>
+  </footer>
+  <script>
+  // Hamburger menu functionality
+  document.getElementById('hamburger').addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.getElementById('nav').classList.toggle('active');
+  });
+
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('.nav-link, .corp-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.getElementById('hamburger').classList.remove('active');
+      document.getElementById('nav').classList.remove('active');
+      const targetId = link.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Parallax effect for mission background
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const missionIntro = document.querySelector('.mission-intro');
+    const missionBgImage = document.querySelector('.mission-bg-image');
+    
+    if (missionIntro && missionBgImage) {
+      const rect = missionIntro.getBoundingClientRect();
+      const introTop = rect.top + scrolled;
+      const introHeight = missionIntro.offsetHeight;
+      
+      if (scrolled >= introTop && scrolled <= introTop + introHeight) {
+        const progress = (scrolled - introTop) / introHeight;
+        const parallaxOffset = progress * 100;
+        missionBgImage.style.setProperty('--parallax-offset', `${parallaxOffset}px`);
+        missionBgImage.classList.add('parallax');
+      }
+    }
+  });
+
+  // Intersection Observer for scroll animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe mission section elements + line
+  document.addEventListener('DOMContentLoaded', () => {
+    const missionElements = document.querySelectorAll('.mission-title, .mission-heading, .mission-subheading, .mission-content p, .mission-image-wrapper');
+    missionElements.forEach(el => {
+      el.style.animationPlayState = 'paused';
+      observer.observe(el);
+    });
+
+    // Trigger line when the title enters viewport
+    const title = document.querySelector('.mission-title');
+    const line  = document.querySelector('.mission-line');
+    if (title && line) {
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            line.classList.add('animate');
+            io.unobserve(entry.target); // one-shot
+          }
+        })
+      }, { threshold: 0.1 });
+      io.observe(title);
+    }
+  });
+  </script>
+</body>
+</html>

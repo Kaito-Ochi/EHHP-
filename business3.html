@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>採用コンサルティング | Edge Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <a href="index.html" class="logo-link">
+      <img src="Edge Hub 企業ロゴ.png" alt="Edge Hub ロゴ" class="logo">
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+    </button>
+    <nav class="nav" id="nav">
+      <a href="index.html#top" class="nav-link">TOP</a>
+      <a href="index.html#mission" class="nav-link">MISSION</a>
+      <a href="index.html#business" class="nav-link">SERVICE</a>
+      <a href="index.html#about" class="nav-link">ABOUT</a>
+    </nav>
+  </header>
+  <main style="min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+    <h1 style="font-size:2.2rem;color:#2d6cdf;margin-bottom:24px;">採用コンサルティング</h1>
+    <div style="font-size:1.5rem;color:#888;">Coming Soon</div>
+  </main>
+  <footer class="footer">
+    <small>© Edge Hub / 法人番号：1120001276956</small>
+  </footer>
+  <script>
+    (function(){
+      const hb = document.getElementById('hamburger');
+      const nav = document.getElementById('nav');
+      if(hb && nav){ hb.addEventListener('click', ()=>{ hb.classList.toggle('active'); nav.classList.toggle('active'); }); }
+      document.querySelectorAll('.nav-link').forEach(a=>{
+        a.addEventListener('click', ()=>{ if(hb && nav){ hb.classList.remove('active'); nav.classList.remove('active'); } });
+      });
+    })();
+  </script>
+</body>
+</html>
