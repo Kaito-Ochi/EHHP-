@@ -1826,3 +1826,61 @@ body {
 .about-table tr:last-child th, .about-table tr:last-child td{ border-bottom:none; }
 .about-mail{ color:#2d6cdf; text-decoration: none; }
 .about-mail:hover{ text-decoration: underline; }
+
+/* Partners Section */
+.partners{ background:#fff; padding: 56px 0; }
+.partners-inner{ width:min(1100px,92%); margin:0 auto; text-align:center; }
+.partners-title{ 
+  margin:0; 
+  font-weight:900; 
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem); 
+  color:#0e1a2b;
+}
+.partners-line{
+  width:min(200px, 40%);
+  height:4px; margin:12px auto 8px; position:relative; overflow:hidden;
+  background: linear-gradient(90deg, transparent, rgba(45,108,223,.15), transparent);
+}
+.partners-line::before{
+  content:""; position:absolute; top:0; left:50%; height:100%; width:0; transform:translateX(-50%);
+  background: linear-gradient(90deg, #2a48c7 0%, #3b79cc 50%, #42d3ed 100%);
+  transition: width 1.6s cubic-bezier(0.22,1,0.36,1);
+}
+.partners.in-view .partners-line::before{ width:100%; }
+.partners-sub{ color:#5a6b87; margin: 6px 0 20px; font-size: .95rem; }
+
+/* marquee */
+.partners-marquee{ position:relative; overflow:hidden; }
+.partners-track{ 
+  display:flex; align-items:center; gap: 24px; 
+  width:max-content; animation: partnersScroll 28s linear infinite;
+}
+.partner-card{ 
+  background:#fff; border:1px solid #eef3fe; border-radius:16px; 
+  padding: 18px 28px; box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+.partner-logo{ width: clamp(120px, 16vw, 220px); height: auto; display:block; }
+
+@keyframes partnersScroll{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+
+@media (max-width: 780px){
+  .partners-track{ gap: 16px; animation-duration: 24s; }
+  .partner-card{ padding: 14px 20px; }
+  .partner-logo{ width: clamp(100px, 30vw, 160px); }
+}
+
+@media (max-width: 560px){
+  /* Fallback: hide curved SVG and show plain heading */
+  .b2-curve{ display:none; }
+  .b2-only-sr{
+    position: static; width: auto; height: auto; padding: 0; margin: 0 0 16px 0;
+    overflow: visible; clip: auto; white-space: normal; border: 0;
+    display: block; text-align: center; font-weight: 900;
+    font-size: clamp(1.2rem, 5.4vw, 1.8rem); color:#0e1a2b;
+  }
+}
+
+.partners-note{ color:#5a6b87; font-size: 0.9rem; margin-top: 10px; }

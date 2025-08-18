@@ -131,6 +131,28 @@
       </div>
     </section>
     
+    <!-- Partners Section -->
+    <section class="partners" id="partners">
+      <div class="partners-inner">
+        <h2 class="partners-title">提携企業様</h2>
+        <div class="partners-line" aria-hidden="true"></div>
+        <div class="partners-marquee" aria-label="提携企業ロゴ">
+          <div class="partners-track">
+            <div class="partner-card"><img src="q.PNG" alt="企業ロゴ1" class="partner-logo"></div>
+            <div class="partner-card"><img src="w.PNG" alt="企業ロゴ2" class="partner-logo"></div>
+            <div class="partner-card"><img src="T.PNG" alt="企業ロゴ3" class="partner-logo"></div>
+            <div class="partner-card"><img src="Y.PNG" alt="企業ロゴ4" class="partner-logo"></div>
+            <!-- duplicate for seamless loop -->
+            <div class="partner-card"><img src="q.PNG" alt="企業ロゴ1" class="partner-logo"></div>
+            <div class="partner-card"><img src="w.PNG" alt="企業ロゴ2" class="partner-logo"></div>
+            <div class="partner-card"><img src="T.PNG" alt="企業ロゴ3" class="partner-logo"></div>
+            <div class="partner-card"><img src="Y.PNG" alt="企業ロゴ4" class="partner-logo"></div>
+          </div>
+        </div>
+        <p class="partners-note">掲載許可いただいた企業様のみ掲載しております。</p>
+      </div>
+    </section>
+
     <section class="contact" id="contact">
       <a href="mailto:info@edgehub.co.jp" class="contact-btn">お問い合わせ</a>
     </section>
@@ -183,17 +205,22 @@
   // Smooth scrolling for navigation links
   document.querySelectorAll('.nav-link, .corp-link').forEach(link => {
     link.addEventListener('click', (e) => {
-      e.preventDefault();
-      document.getElementById('hamburger').classList.remove('active');
-      document.getElementById('nav').classList.remove('active');
-      const targetId = link.getAttribute('href').substring(1);
-      const targetSection = document.getElementById(targetId);
-      if (targetSection) {
-        targetSection.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+      const href = link.getAttribute('href') || '';
+      // Close hamburger immediately
+      const hb = document.getElementById('hamburger');
+      const nav = document.getElementById('nav');
+      if (hb && nav) { hb.classList.remove('active'); nav.classList.remove('active'); }
+
+      // Only intercept in-page hash links
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        const targetId = href.substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
+      // Non-hash links (e.g., about.html) will navigate normally
     });
   });
 
@@ -253,6 +280,17 @@
         })
       }, { threshold: 0.1 });
       io.observe(title);
+    }
+
+    // Partners underline animation when visible
+    const partners = document.querySelector('.partners');
+    if(partners){
+      const po = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){ partners.classList.add('in-view'); po.unobserve(entry.target); }
+        })
+      }, { threshold: 0.2 });
+      po.observe(partners);
     }
   });
   </script>
