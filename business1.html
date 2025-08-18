@@ -295,5 +295,83 @@
       });
     })();
   </script>
+  <script>
+    // Application form: dynamic switching and validation
+    document.addEventListener('DOMContentLoaded', function(){
+      const typeRadios = document.querySelectorAll('input[name="type"]');
+      const studentForm = document.getElementById('studentForm');
+      const companyForm = document.getElementById('companyForm');
+
+      const setRequired = (ids, required) => {
+        ids.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.required = required;
+        });
+      };
+
+      const switchMode = (mode) => {
+        if(mode === 'student'){
+          studentForm.style.display = 'block';
+          companyForm.style.display = 'none';
+          setRequired(['school','department','graduationYear','graduationMonth'], true);
+          setRequired(['companyName','companyDepartment'], false);
+        }else{
+          studentForm.style.display = 'none';
+          companyForm.style.display = 'block';
+          setRequired(['school','department','graduationYear','graduationMonth'], false);
+          setRequired(['companyName'], true);
+        }
+      };
+
+      // init
+      const checked = document.querySelector('input[name="type"]:checked');
+      if(checked){ switchMode(checked.value); }
+      typeRadios.forEach(r => r.addEventListener('change', () => switchMode(r.value)));
+
+      // validation and submit
+      const form = document.getElementById('lenovaForm');
+      if(form){
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          // clear previous
+          document.querySelectorAll('.b1-form__input--error').forEach(el=>el.classList.remove('b1-form__input--error'));
+
+          const mode = document.querySelector('input[name="type"]:checked')?.value || 'student';
+          let isValid = true;
+
+          const common = ['name','phone','email'];
+          common.forEach(id=>{
+            const el = document.getElementById(id);
+            if(el && !el.value.trim()){ el.classList.add('b1-form__input--error'); isValid = false; }
+          });
+
+          if(mode==='student'){
+            ['school','department','graduationYear','graduationMonth'].forEach(id=>{
+              const el = document.getElementById(id);
+              if(el && !el.value.trim()){ el.classList.add('b1-form__input--error'); isValid = false; }
+            });
+          }else{
+            const el = document.getElementById('companyName');
+            if(el && !el.value.trim()){ el.classList.add('b1-form__input--error'); isValid = false; }
+          }
+
+          // email format
+          const email = document.getElementById('email');
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if(email && email.value.trim() && !emailRegex.test(email.value.trim())){
+            email.classList.add('b1-form__input--error');
+            isValid = false;
+          }
+
+          if(!isValid) return;
+
+          // success
+          form.style.display = 'none';
+          const done = document.getElementById('lenovaSuccess');
+          if(done) done.style.display = 'block';
+        });
+      }
+    });
+  </script>
 </body>
 </html>
