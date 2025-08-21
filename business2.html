@@ -116,16 +116,21 @@
       <div class="b2-container">
         <img src="解決1.PNG" alt="解決デコ左下" class="b2-deco b2-deco--solve-left"/>
         <img src="解決2.PNG" alt="解決デコ右下" class="b2-deco b2-deco--solve-right"/>
-        <div class="b2-photos" aria-hidden="true">
-          <figure class="b2-photo b2-photo--a">
-            <img src="ITO.JPG" alt="学生の取材風景" class="b2-photo__img">
-          </figure>
-          <figure class="b2-photo b2-photo--b">
-            <img src="社長.jpeg" alt="社長インタビュー" class="b2-photo__img">
-          </figure>
-          <figure class="b2-photo b2-photo--c">
-            <img src="議員.jpg" alt="議員インタビュー" class="b2-photo__img">
-          </figure>
+        <div class="b2-carousel" role="region" aria-label="インタビュー写真カルーセル">
+          <div class="b2-carousel__track">
+            <div class="b2-carousel__slide is-active">
+              <img src="社長.jpeg" alt="社長インタビュー" class="b2-carousel__img">
+            </div>
+            <div class="b2-carousel__slide">
+              <img src="ITO.JPG" alt="学生の取材風景" class="b2-carousel__img">
+            </div>
+            <div class="b2-carousel__slide">
+              <img src="議員.jpg" alt="議員インタビュー" class="b2-carousel__img">
+            </div>
+          </div>
+          <button class="b2-carousel__btn b2-carousel__btn--prev" aria-label="前の画像">‹</button>
+          <button class="b2-carousel__btn b2-carousel__btn--next" aria-label="次の画像">›</button>
+          <div class="b2-carousel__dots" aria-hidden="true"></div>
         </div>
         <p>私たちは、学生が各業界のトップランナーであるプロフェッショナルに直接インタビューし、記事として発信するプラットフォームを運営しています。</p>
         <p>「議員Club」、「社長Club」、「エンジニアClub」など、分野ごとに設けられたClubで、学生は企画立案から取材、構成・執筆、編集、そして公開までの全工程を自ら担当。取材を通じて、リアルな仕事観や人生観に触れることで、自分だけの“ガクチカ”を形にします。</p>
@@ -205,6 +210,51 @@
     <small>© Edge Hub / 法人番号：1120001276956</small>
   </footer>
   <script>
+  // b2 carousel
+  (function(){
+    const carousel = document.querySelector('.b2-carousel');
+    if(!carousel) return;
+    const track = carousel.querySelector('.b2-carousel__track');
+    const slides = Array.from(carousel.querySelectorAll('.b2-carousel__slide'));
+    const prevBtn = carousel.querySelector('.b2-carousel__btn--prev');
+    const nextBtn = carousel.querySelector('.b2-carousel__btn--next');
+    const dotsWrap = carousel.querySelector('.b2-carousel__dots');
+    let index = 0;
+    let timer = null;
+
+    // dots
+    slides.forEach((_, i)=>{
+      const dot = document.createElement('button');
+      dot.className = 'b2-carousel__dot' + (i===0 ? ' is-active' : '');
+      dot.setAttribute('aria-label', `${i+1}枚目へ`);
+      dot.addEventListener('click', ()=>goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+    const dots = Array.from(dotsWrap.querySelectorAll('.b2-carousel__dot'));
+
+    function update(){
+      track.style.transform = `translateX(${-100*index}%)`;
+      dots.forEach((d,i)=>d.classList.toggle('is-active', i===index));
+    }
+    function goTo(i){ index = (i+slides.length)%slides.length; update(); restart(); }
+    function next(){ goTo(index+1); }
+    function prev(){ goTo(index-1); }
+
+    function start(){ timer = setInterval(next, 4000); }
+    function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+    function restart(){ stop(); start(); }
+
+    nextBtn.addEventListener('click', next);
+    prevBtn.addEventListener('click', prev);
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+    carousel.addEventListener('touchstart', stop, {passive:true});
+    carousel.addEventListener('touchend', start, {passive:true});
+
+    // initialize
+    update();
+    start();
+  })();
   document.getElementById('gakuchikaForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
